@@ -27,9 +27,11 @@ func onStateChanged(d gatt.Device, s gatt.State) {
 }
 
 func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
-	id := strings.ToUpper(flag.Args()[0])
-	if strings.ToUpper(p.ID()) != id {
-		return
+	if len(flag.Args()) != 0 {
+		id := strings.ToUpper(flag.Args()[0])
+		if strings.ToUpper(p.ID()) != id {
+			return
+		}
 	}
 
 	p.Device().StopScanning()
@@ -135,7 +137,7 @@ func onPeriphDisconnected(p gatt.Peripheral, err error) {
 
 func main() {
 	flag.Parse()
-	if len(flag.Args()) != 1 {
+	if len(flag.Args()) > 1 {
 		log.Fatalf("usage: %s [options] peripheral-id\n", os.Args[0])
 	}
 
