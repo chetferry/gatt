@@ -42,7 +42,9 @@ func onPeriphDiscovered(p gatt.Peripheral, a *gatt.Advertisement, rssi int) {
 }
 
 func onPeriphConnected(p gatt.Peripheral, err error) {
-	enumAllTheThings(p, err)
+	for {
+		enumAllTheThings(p, err)
+	}
 }
 
 func enumAllTheThings(p gatt.Peripheral, err error) {
