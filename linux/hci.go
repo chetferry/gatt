@@ -6,9 +6,9 @@ import (
 	"log"
 	"sync"
 
-	"github.com/bettercap/gatt/linux/cmd"
-	"github.com/bettercap/gatt/linux/evt"
-	"github.com/bettercap/gatt/linux/util"
+	"github.com/chetferry/gatt/linux/cmd"
+	"github.com/chetferry/gatt/linux/evt"
+	"github.com/chetferry/gatt/linux/util"
 )
 
 type HCI struct {
